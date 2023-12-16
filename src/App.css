@@ -1,0 +1,17 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+.app {
+  height: 100vh;
+}
+.navigation {
+  height: 10vh;
+  background-color: aquamarine;
+  width: 100vw;
+}
+
+.svg img {
+  height: 5vh;
+}
