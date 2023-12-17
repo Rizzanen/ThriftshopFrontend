@@ -15,7 +15,7 @@ function App() {
               {" "}
               Add Listing
             </Link>
-            <Link to={"/profile"} className="link">
+            <Link to={"/login"} className="link">
               <AccountCircleIcon style={{ fontSize: 40 }} />
             </Link>
           </nav>

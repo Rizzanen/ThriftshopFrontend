@@ -232,3 +232,61 @@ html {
 .createButton button:hover {
   background-color: rgb(209, 209, 209);
 }
+.loginpage {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+.loginform {
+  width: 30%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+}
+.password,
+.username {
+  width: 13vw;
+}
+.password input,
+.username input {
+  height: 5vh;
+  width: 13vw;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.password h3,
+.username h3 {
+  font-size: 25px;
+  margin: 0;
+}
+.password {
+  margin-top: 1vh;
+  margin-bottom: 3vh;
+}
+.username {
+  margin-bottom: 1vh;
+}
+.loginButton {
+  width: 13.7vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginButton button {
+  font-size: 20px;
+  padding: 10px;
+  width: 13.4vw;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: auto;
+}
+.loginButton button:hover {
+  background-color: rgb(220, 220, 220);
+}
