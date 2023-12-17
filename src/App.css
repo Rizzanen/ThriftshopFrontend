@@ -2,40 +2,79 @@ body,
 html {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 .app {
   height: 100vh;
 }
 .navigation {
-  height: 10vh;
-  background-color: aquamarine;
+  height: 8vh;
   width: 100vw;
+  border-bottom: 1px solid grey;
+  background-color: rgb(240, 240, 240);
+}
+.navigation nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
 }
 
 .svg img {
   height: 5vh;
+  margin-left: 2vw;
 }
+.link {
+  margin-right: 3vw;
+  color: black;
+}
+
 .searchbar {
-  background-color: aqua;
+  margin-top: 2vh;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .searchbar input {
-  width: 30vw;
+  width: 38.4vw;
   height: 5vh;
   font-size: 25px;
 }
 .searchbar button {
   height: 5.8vh;
   font-size: 20px;
+  width: 6vw;
+}
+
+.categoryscontainer {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10vh;
+}
+
+.categorys {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categorys button {
+  width: 6vw;
+  height: 8vh;
 }
 .listing {
   display: flex;
   height: 35vh;
   margin-top: 5vh;
-  background-color: antiquewhite;
+  border: 1px solid grey;
+  background-color: rgb(240, 240, 240);
   width: 70vw;
   margin-left: auto;
   margin-right: auto;

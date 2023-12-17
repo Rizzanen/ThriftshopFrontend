@@ -1,5 +1,6 @@
 import "./App.css";
 import { Link, Outlet } from "react-router-dom";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
               <img src="dollar.svg" alt="SVG Image" />
             </Link>
             <Link to={"/profile"} className="link">
-              Profile
+              <AccountCircleIcon style={{ fontSize: 40 }} />
             </Link>
           </nav>
         </div>
