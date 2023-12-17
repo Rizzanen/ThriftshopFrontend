@@ -15,3 +15,71 @@ html {
 .svg img {
   height: 5vh;
 }
+.searchbar {
+  background-color: aqua;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchbar input {
+  width: 30vw;
+  height: 5vh;
+  font-size: 25px;
+}
+.searchbar button {
+  height: 5.8vh;
+  font-size: 20px;
+}
+.listing {
+  display: flex;
+  height: 35vh;
+  margin-top: 5vh;
+  background-color: antiquewhite;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23vw;
+}
+.image img {
+  height: 30vh;
+  width: 20vw;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+}
+.nameprice {
+  display: flex;
+  justify-content: space-between;
+}
+.otherdetail {
+  display: flex;
+  flex-direction: column;
+}
+.postedCondition h3 {
+  margin: 0;
+}
+.details {
+  height: 16vh;
+}
+
+.postedButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+}
+
+.postedButton button {
+  height: 3vh;
+}
+.postedButton h3 {
+  margin: 0;
+}
