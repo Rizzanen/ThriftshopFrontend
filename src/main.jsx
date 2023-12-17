@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./components/Homepage.jsx";
 import Profile from "./components/Profile.jsx";
+import AddListing from "./components/AddListing.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "addlisting",
+        element: <AddListing />,
       },
     ],
   },

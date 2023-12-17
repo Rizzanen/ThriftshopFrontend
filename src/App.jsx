@@ -11,6 +11,10 @@ function App() {
             <Link to={"/"} className="svg">
               <img src="dollar.svg" alt="SVG Image" />
             </Link>
+            <Link to={"/addlisting"} className="addListing">
+              {" "}
+              Add Listing
+            </Link>
             <Link to={"/profile"} className="link">
               <AccountCircleIcon style={{ fontSize: 40 }} />
             </Link>
