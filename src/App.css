@@ -290,3 +290,44 @@ html {
 .loginButton button:hover {
   background-color: rgb(220, 220, 220);
 }
+.userdata {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10vw;
+  background-color: rgb(240, 240, 240);
+  width: 30vw;
+  height: 70vh;
+  border-radius: 30px;
+}
+
+.datah3 {
+  font-weight: normal;
+  font-size: 21px;
+}
+.headers {
+  margin-left: 4vw;
+}
+.headers h3 {
+  font-size: 21px;
+}
+.userInformation {
+  margin-left: 1vw;
+}
+.dataContainer {
+  display: flex;
+}
+.yourInformation {
+  margin-top: 4vh;
+  margin-left: 3vw;
+}
+.updateDataButton {
+  background-color: aqua;
+  margin-top: 6vh;
+  margin-left: auto;
+  margin-right: 3vw;
+}
+.updateDataButton button {
+  height: 5vh;
+  font-size: 20px;
+  background-color: rgb(190, 214, 252);
+}
