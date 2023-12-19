@@ -290,14 +290,19 @@ html {
 .loginButton button:hover {
   background-color: rgb(220, 220, 220);
 }
+.profilepage {
+  display: flex;
+  height: 92vh;
+}
 .userdata {
   display: flex;
   flex-direction: column;
   margin-left: 10vw;
   background-color: rgb(240, 240, 240);
-  width: 30vw;
+  width: 35vw;
   height: 70vh;
   border-radius: 30px;
+  margin-top: 10vh;
 }
 
 .datah3 {
@@ -320,14 +325,58 @@ html {
   margin-top: 4vh;
   margin-left: 3vw;
 }
-.updateDataButton {
+.updateDataButton,
+.changeDataButton {
   background-color: aqua;
-  margin-top: 6vh;
-  margin-left: auto;
+  margin-top: 2vh;
+  margin-left: 4vw;
+  margin-right: auto;
+}
+.updateDataButton button,
+.changeDataButton button {
+  height: 5vh;
+  font-size: 17px;
+  background-color: rgb(190, 214, 252);
+}
+.userInformationinputs {
+  display: none;
+}
+.userInformationinputs.editopen {
+  display: block;
+  flex-direction: row;
+  width: 200px;
+}
+.userInformationinputs.editopen input {
+  margin-top: 2.1vh;
+  height: 4vh;
+  font-size: 17px;
+  width: 15vw;
+  margin-left: 1vw;
+}
+.updateDataButton {
+  display: none;
+}
+.userInformation.editopen {
+  display: none;
+}
+.updateDataButton.editopen {
+  display: block;
+}
+.changeDataButton.editopen {
+  display: none;
+}
+.logoutButton {
+  display: none;
+}
+.logoutButton.loggedin {
+  display: block;
   margin-right: 3vw;
 }
-.updateDataButton button {
-  height: 5vh;
+.logoutButton.loggedin button {
+  color: black;
+  text-decoration: none;
   font-size: 20px;
-  background-color: rgb(190, 214, 252);
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
 }

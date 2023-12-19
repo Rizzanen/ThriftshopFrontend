@@ -8,6 +8,13 @@ function Login() {
     username: "",
     password: "",
   });
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/profile");
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
@@ -35,6 +42,7 @@ function Login() {
       .then((data) => {
         if (data) {
           navigate("/profile", { state: { userData: data } });
+          sessionStorage.setItem("isLoggedIn", "true");
         }
       })
       .catch((error) => {
