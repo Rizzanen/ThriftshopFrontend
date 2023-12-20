@@ -1,13 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const navigate = useNavigate();
   const location = useLocation();
   const userData = location.state?.userData || {};
-  const [newUserData, setNewUserData] = useState({});
+  const [newUserData, setNewUserData] = useState({
+    username: "",
+    password: "",
+    role: "",
+    email: "",
+    phone: "",
+    address: "",
+    postcode: "",
+    city: "",
+  });
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
+    if (!sessionStorage.getItem("UserDataSet")) {
+      sessionStorage.setItem("Userdata", JSON.stringify(userData));
+      sessionStorage.setItem("UserDataSet", "true");
+    }
+
     if (sessionStorage.getItem("Userdata") !== null) {
       setNewUserData(JSON.parse(sessionStorage.getItem("Userdata")));
     } else {
@@ -32,7 +48,9 @@ function Profile() {
       body: JSON.stringify(newUserData),
     })
       .then((response) => response.json())
-      .then((data) => setNewUserData(data))
+      .then((data) => {
+        setNewUserData((prevUserData) => ({ ...prevUserData, ...data }));
+      })
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -42,10 +60,21 @@ function Profile() {
 
   const testi = () => {
     console.log(sessionStorage.getItem("Userdata"));
+    console.log(sessionStorage.getItem("UserDataSet"));
+  };
+
+  const logout = () => {
+    sessionStorage.removeItem("Userdata");
+    sessionStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("UserDataSet");
+    navigate("/");
   };
 
   return (
     <div className="profilepage">
+      <div className="logoutButton">
+        <button onClick={logout}>Logout</button>
+      </div>
       <div className="userdata">
         <div className="yourInformation">
           <h1>Your Information</h1>
@@ -73,37 +102,37 @@ function Profile() {
             <input
               type="text"
               name="username"
-              value={newUserData.username}
+              value={newUserData.username || ""}
               onChange={handleInputChange}
             />
             <input
               type="text"
               name="email"
-              value={newUserData.email}
+              value={newUserData.email || ""}
               onChange={handleInputChange}
             />
             <input
               type="text"
               name="phone"
-              value={newUserData.phone}
+              value={newUserData.phone || ""}
               onChange={handleInputChange}
             />
             <input
               type="text"
               name="address"
-              value={newUserData.address}
+              value={newUserData.address || ""}
               onChange={handleInputChange}
             />
             <input
               type="text"
               name="postcode"
-              value={newUserData.postcode}
+              value={newUserData.postcode || ""}
               onChange={handleInputChange}
             />
             <input
               type="text"
               name="city"
-              value={newUserData.city}
+              value={newUserData.city || ""}
               onChange={handleInputChange}
             />
           </div>

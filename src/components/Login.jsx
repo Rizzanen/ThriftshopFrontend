@@ -53,6 +53,10 @@ function Login() {
   return (
     <div className="loginpage">
       <div className="loginform">
+        <div className="loginheader">
+          <h1>Login</h1>
+        </div>
+
         <div className="username">
           <h3>Username</h3>
           <input

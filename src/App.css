@@ -240,7 +240,7 @@ html {
 }
 .loginform {
   width: 30%;
-  height: 40vh;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -248,6 +248,14 @@ html {
   border: 1px solid black;
   background-color: rgb(240, 240, 240);
   border-radius: 10px;
+}
+.loginheader {
+  width: 100%;
+  margin-left: 4vw;
+}
+.loginheader h1 {
+  margin: 0;
+  padding: 0;
 }
 .password,
 .username {
@@ -291,7 +299,6 @@ html {
   background-color: rgb(220, 220, 220);
 }
 .profilepage {
-  display: flex;
   height: 92vh;
 }
 .userdata {
@@ -302,7 +309,6 @@ html {
   width: 35vw;
   height: 70vh;
   border-radius: 30px;
-  margin-top: 10vh;
 }
 
 .datah3 {
@@ -366,6 +372,17 @@ html {
   display: none;
 }
 .logoutButton {
+  display: flex;
+  height: 10vh;
+  margin-left: auto;
+  width: 6vw;
+}
+.logoutButton button {
+  height: 5vh;
+  font-size: 20px;
+  margin-top: 2vh;
+}
+/* .logoutButton {
   display: none;
 }
 .logoutButton.loggedin {
@@ -379,4 +396,4 @@ html {
   padding: 8px;
   border: 1px solid black;
   border-radius: 5px;
-}
+} */
