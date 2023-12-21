@@ -4,12 +4,6 @@ import { Link, Outlet } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState();
-
-  const handleOnClick = () => {
-    sessionStorage.removeItem("isLoggedIn");
-    setIsLoggedIn("");
-  };
   return (
     <>
       <div className="app">
@@ -22,8 +16,12 @@ function App() {
               {" "}
               Add Listing
             </Link>
+
             <Link to={"/login"} className="link">
-              <AccountCircleIcon style={{ fontSize: 40 }} />
+              <div>
+                <AccountCircleIcon style={{ fontSize: 40 }} />
+                <p>Profile</p>
+              </div>
             </Link>
           </nav>
         </div>
