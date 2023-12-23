@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function AddListing() {
+  const location = useLocation();
+  const newUserData = location.state?.newUserData || {};
   const [allCategorys, setAllCategorys] = useState([]);
   const [listing, setListing] = useState({
     name: "",
@@ -10,6 +13,7 @@ function AddListing() {
     condition: "",
     details: "",
     category: {},
+    appUser: newUserData,
   });
 
   useEffect(() => {
@@ -115,6 +119,7 @@ function AddListing() {
           <button onClick={createListing}>Create Listing</button>
         </div>
       </div>
+      <button onClick={testi}>Testi</button>
     </div>
   );
 }

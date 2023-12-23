@@ -12,10 +12,6 @@ function App() {
             <Link to={"/"} className="svg">
               <img src="dollar.svg" alt="SVG Image" />
             </Link>
-            <Link to={"/addlisting"} className="addListing">
-              {" "}
-              Add Listing
-            </Link>
 
             <Link to={"/login"} className="link">
               <div>

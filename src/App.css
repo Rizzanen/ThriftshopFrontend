@@ -40,16 +40,6 @@ html {
   font-size: 15px;
   text-align: center;
 }
-.addListing {
-  color: black;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 8px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: 2vw;
-}
 
 .searchbar {
   margin-top: 2vh;
@@ -388,14 +378,15 @@ html {
 .logoutButton {
   display: flex;
   height: 10vh;
-  margin-left: auto;
-  width: 6vw;
-  margin-right: 5vw;
+  width: 100vw;
+  align-items: center;
+
+  justify-content: space-between;
 }
 .logoutButton button {
   height: 5vh;
   font-size: 20px;
-  margin-top: 2vh;
+  margin-right: 5vw;
 }
 .ownListingsContainer {
   background-color: rgb(240, 240, 240);
@@ -411,7 +402,7 @@ html {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  max-height: 48vh;
+  max-height: 50vh;
   overflow-y: auto;
 }
 
@@ -420,7 +411,7 @@ html {
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  height: 17vh;
+  height: 15vh;
   margin-bottom: 2vh;
   width: 95%;
   border: 1px solid black;
@@ -438,4 +429,21 @@ html {
   height: 4vh;
   font-size: 17px;
   margin-right: 1vw;
+}
+.addListing {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-left: auto;
+  background-color: aqua;
+  width: 8vw;
+  margin-right: 3vw;
+}
+
+.addListing button {
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
 }

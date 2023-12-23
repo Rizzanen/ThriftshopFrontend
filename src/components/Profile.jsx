@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const navigate = useNavigate();
@@ -96,6 +97,14 @@ function Profile() {
   return (
     <div className="profilepage">
       <div className="logoutButton">
+        <Link
+          to={"/addlisting"}
+          state={{ newUserData: newUserData }}
+          className="addListing"
+        >
+          <button>Add Listing</button>
+        </Link>
+
         <button onClick={logout}>Logout</button>
       </div>
       <div className="profileContainer">
