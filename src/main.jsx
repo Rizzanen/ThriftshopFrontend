@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage.jsx";
 import Profile from "./components/Profile.jsx";
 import AddListing from "./components/AddListing.jsx";
 import Login from "./components/Login.jsx";
+import EditListing from "./components/EditListing.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "editListing",
+        element: <EditListing />,
       },
     ],
   },

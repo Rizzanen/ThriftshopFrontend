@@ -81,9 +81,6 @@ function Profile() {
       method: "DELETE",
     })
       .then((response) => response.text())
-      .then((responseData) => {
-        console.log("Response from server:", responseData);
-      })
       .then(() => {
         fetch(`http://localhost:8080/listings/users/${newUserData.userId}`)
           .then((response) => response.json())
@@ -183,14 +180,29 @@ function Profile() {
           <div className="ownListings">
             {usersListings.map((listing) => (
               <div className="ownListing" key={listing.id}>
-                <div className="ownListingName">
-                  <h2>{listing.name}</h2>
+                <div className="ownListingImg">
+                  <img src={listing.pictureURL} />
                 </div>
-                <div className="ownListingButtons">
-                  <button>Edit</button>
-                  <button onClick={() => handleDeleteClick(listing.id)}>
-                    Delete
-                  </button>
+                <div className="ownListingInformation">
+                  <div className="ownListingName">
+                    <h2>{listing.name}</h2>
+                    <h2>{listing.price} €</h2>
+                  </div>
+                  <div className="ownListingCondition">
+                    <p>Condition: {listing.condition}</p>
+                  </div>
+                  <div className="ownListingDetails">
+                    <p> Details: {listing.details}</p>
+                  </div>
+
+                  <div className="ownListingButtons">
+                    <Link to={"/editListing"} state={{ listing: listing }}>
+                      Edit
+                    </Link>
+                    <button onClick={() => handleDeleteClick(listing.id)}>
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

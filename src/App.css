@@ -309,9 +309,8 @@ html {
 .userdata {
   display: flex;
   flex-direction: column;
-  margin-left: 10vw;
   background-color: rgb(240, 240, 240);
-  width: 35vw;
+  width: 30vw;
   height: 70vh;
   border-radius: 30px;
 }
@@ -390,9 +389,8 @@ html {
 }
 .ownListingsContainer {
   background-color: rgb(240, 240, 240);
-  width: 40vw;
+  width: 60vw;
   height: 70vh;
-
   border-radius: 30px;
 }
 .ownListingsContainer h1 {
@@ -410,14 +408,43 @@ html {
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  flex-direction: column;
-  height: 15vh;
+  height: 30vh;
   margin-bottom: 2vh;
   width: 95%;
   border: 1px solid black;
-  text-align: center;
 }
 
+.ownListingImg img {
+  height: 30vh;
+  width: 18vw;
+}
+
+.ownListingInformation {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
+.ownListingCondition p {
+  margin: 0;
+}
+.ownListingName {
+  display: flex;
+  justify-content: space-between;
+}
+.ownListingName h2 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+.ownListingInformation p {
+  margin-left: 1vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.ownListingDetails {
+  height: 48%;
+}
 .ownListingButtons {
   display: flex;
   justify-content: space-around;
@@ -446,4 +473,74 @@ html {
   font-size: 20px;
   border: 1px solid black;
   border-radius: 5px;
+}
+.editListingPage {
+  height: 89vh;
+  display: flex;
+}
+.editListingContainer {
+  margin-top: 10vh;
+  margin-left: 15vw;
+  width: 70vw;
+  height: 70vh;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.editListingForm {
+  display: flex;
+  flex-direction: column;
+}
+.editListingInputs {
+  display: flex;
+  flex-direction: column;
+}
+.editListingHeader {
+  margin-left: 10vw;
+}
+.editListingHeader h1 {
+  font-size: 40px;
+}
+.editListingForm {
+  margin-left: 10vw;
+}
+
+.editListingPicture,
+.editListingDetails,
+.editListingCondition,
+.editListingPrice,
+.editListingName {
+  display: flex;
+  width: 60vw;
+  align-items: center;
+}
+.editListingName input,
+.editListingPrice input,
+.editListingCondition input,
+.editListingPicture input {
+  width: 40vw;
+  height: 5vh;
+  font-size: 16px;
+}
+.editListingDetails textarea {
+  width: 40vw;
+  height: 8vh;
+  font-size: 16px;
+}
+.editListingPicture h2,
+.editListingDetails h2,
+.editListingCondition h2,
+.editListingPrice h2,
+.editListingName h2 {
+  width: 15%;
+}
+.saveEditButton button {
+  height: 5vh;
+  width: 5vw;
+  font-size: 18px;
+}
+.saveEditButton {
+  margin-left: 10vw;
+  background-color: beige;
 }
