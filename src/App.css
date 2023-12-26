@@ -545,3 +545,60 @@ html {
   width: 49.5vw;
   display: flex;
 }
+.CartPage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cartContainer {
+  background-color: rgb(240, 240, 240);
+  border: 2px solid rgb(182, 2, 182);
+  width: 55vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+}
+.cartItems {
+  display: flex;
+  width: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+}
+.cartItems h3 {
+  padding: 0;
+  margin: 0.2vh;
+}
+.cartItemname {
+  width: 50%;
+  background-color: aqua;
+  margin-left: 1vw;
+}
+.cartItemAmount {
+  width: 25%;
+}
+.cartTotal {
+  margin-left: 45%;
+}
+
+.cartTotal h3 {
+  background-color: rgb(243, 241, 241);
+  display: flex;
+  padding: 0;
+  font-size: 25px;
+}
+.cartItemAmount {
+  margin-right: 3vw;
+}
+.chekcoutButton {
+  margin-left: 85%;
+  margin-bottom: 3vh;
+}
