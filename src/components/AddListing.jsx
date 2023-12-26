@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AddListing() {
+  const navigate = useNavigate();
   const location = useLocation();
   const newUserData = location.state?.newUserData || {};
   const [allCategorys, setAllCategorys] = useState([]);
@@ -52,6 +54,7 @@ function AddListing() {
       details: "",
       category: {},
     });
+    navigate("/profile");
   };
 
   const handleOnChange = (event) => {
@@ -119,7 +122,6 @@ function AddListing() {
           <button onClick={createListing}>Create Listing</button>
         </div>
       </div>
-      <button onClick={testi}>Testi</button>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Profile from "./components/Profile.jsx";
 import AddListing from "./components/AddListing.jsx";
 import Login from "./components/Login.jsx";
 import EditListing from "./components/EditListing.jsx";
+import Cart from "./components/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "editListing",
         element: <EditListing />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

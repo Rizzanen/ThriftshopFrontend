@@ -12,6 +12,7 @@ function App() {
             <Link to={"/"} className="svg">
               <img src="dollar.svg" alt="SVG Image" />
             </Link>
+            <Link to={"/cart"}>Cart</Link>
 
             <Link to={"/login"} className="link">
               <div>

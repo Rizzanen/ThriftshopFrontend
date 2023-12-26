@@ -66,6 +66,27 @@ function Homepage() {
     setListings(listingsCopy);
   };
 
+  const addToCart = (listing) => {
+    const currentCart = JSON.parse(sessionStorage.getItem("Cart")) || [];
+    listing.amount = 1;
+    var itemUniqueCounter = 0;
+    if (currentCart.length === 0) {
+      currentCart.push(listing);
+    } else {
+      currentCart.forEach((item) => {
+        if (item.id === listing.id) {
+          item.amount += 1;
+          itemUniqueCounter += 1;
+        }
+      });
+      if (itemUniqueCounter === 0) {
+        currentCart.push(listing);
+      }
+    }
+
+    sessionStorage.setItem("Cart", JSON.stringify(currentCart));
+  };
+
   return (
     <div className="homepage">
       <div className="searchbar">
@@ -105,9 +126,10 @@ function Homepage() {
                 <h3> {listing.details}</h3>
               </div>
             </div>
+
             <div className="postedButton">
               <p>Posted: {formatDate(listing.date)}</p>
-              <button>Send message</button>
+              <button onClick={() => addToCart(listing)}>Add to Cart</button>
             </div>
           </div>
         </div>

@@ -390,7 +390,7 @@ html {
 .ownListingsContainer {
   background-color: rgb(240, 240, 240);
   width: 60vw;
-  height: 70vh;
+
   border-radius: 30px;
 }
 .ownListingsContainer h1 {
@@ -400,8 +400,6 @@ html {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  max-height: 50vh;
-  overflow-y: auto;
 }
 
 .ownListing {
@@ -409,7 +407,7 @@ html {
   margin-right: auto;
   display: flex;
   height: 30vh;
-  margin-bottom: 2vh;
+  margin-bottom: 5vh;
   width: 95%;
   border: 1px solid black;
 }
@@ -527,6 +525,7 @@ html {
   width: 40vw;
   height: 8vh;
   font-size: 16px;
+  resize: none;
 }
 .editListingPicture h2,
 .editListingDetails h2,
@@ -539,8 +538,10 @@ html {
   height: 5vh;
   width: 5vw;
   font-size: 18px;
+  margin-left: auto;
 }
 .saveEditButton {
   margin-left: 10vw;
-  background-color: beige;
+  width: 49.5vw;
+  display: flex;
 }
