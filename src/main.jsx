@@ -9,11 +9,16 @@ import AddListing from "./components/AddListing.jsx";
 import Login from "./components/Login.jsx";
 import EditListing from "./components/EditListing.jsx";
 import Cart from "./components/Cart.jsx";
+import { CartProvider } from "./context/Cartcontext.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <CartProvider>
+        <App />
+      </CartProvider>
+    ),
     children: [
       {
         element: <Homepage />,

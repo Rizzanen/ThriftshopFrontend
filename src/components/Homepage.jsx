@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useCart } from "../context/Cartcontext.jsx";
 
 function Homepage() {
   const [listings, setListings] = useState([]);
@@ -6,6 +7,7 @@ function Homepage() {
   const [searchString, setSearchString] = useState("");
   const [emptySearch, setEmptySearch] = useState(false);
   const [allCategorys, setAllCategorys] = useState([]);
+  const { setCartItemCount, cartItemCount } = useCart();
 
   useEffect(() => {
     fetch("http://localhost:8080/listings")
@@ -67,6 +69,15 @@ function Homepage() {
   };
 
   const addToCart = (listing) => {
+    if (cartItemCount === 0) {
+      sessionStorage.setItem("cartItemsCount", 1);
+      setCartItemCount(1);
+    } else {
+      const cartItemAmount = cartItemCount + 1;
+      sessionStorage.setItem("cartItemsCount", cartItemAmount);
+      setCartItemCount(cartItemAmount);
+    }
+
     const currentCart = JSON.parse(sessionStorage.getItem("Cart")) || [];
     listing.amount = 1;
     var itemUniqueCounter = 0;

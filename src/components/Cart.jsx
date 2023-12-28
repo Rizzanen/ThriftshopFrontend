@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useCart } from "../context/Cartcontext.jsx";
 
 function Cart() {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState();
+  const { setCartItemCount, cartItemCount } = useCart();
 
   useEffect(() => {
     setItems(JSON.parse(sessionStorage.getItem("Cart")));
@@ -12,13 +14,17 @@ function Cart() {
 
   const countTotal = (items) => {
     var sum = 0;
-    items.forEach((item) => {
-      sum = sum + item.price * item.amount;
-    });
-    setTotal(sum);
+    if (items) {
+      items.forEach((item) => {
+        sum = sum + item.price * item.amount;
+      });
+      setTotal(sum);
+    }
   };
 
   const decrease = (id) => {
+    setCartItemCount(cartItemCount - 1);
+    sessionStorage.setItem("cartItemsCount", cartItemCount - 1);
     const updatedItems = [];
     items.forEach((item) => {
       if (item.id === id) {
@@ -36,6 +42,8 @@ function Cart() {
   };
 
   const increase = (id) => {
+    setCartItemCount(cartItemCount + 1);
+    sessionStorage.setItem("cartItemsCount", cartItemCount + 1);
     const updatedItems = [];
     items.forEach((item) => {
       if (item.id === id) {
@@ -51,25 +59,46 @@ function Cart() {
     <div className="CartPage">
       <div className="cartContainer">
         <div className="cartHeader">
-          <h1>Shopping cart</h1>
+          <h1>Shopping cart </h1>
         </div>
-        {items.map((item) => (
-          <div key={item.id} className="cartItems">
-            <h3 className="cartItemname">{item.name}</h3>
-            <h3 className="cartItemAmount">
-              {item.amount} x {item.price} €
-            </h3>
-            <button onClick={() => decrease(item.id)}>-</button>
-            <h3>{item.amount}</h3>
-            <button onClick={() => increase(item.id)}>+</button>
+        <div className="cartItemsandTotalContainer">
+          <div className="cart">
+            {items && items.length > 0 ? (
+              items.map((item) => (
+                <div key={item.id} className="cartItems">
+                  <img src={item.pictureURL} />
+                  <div className="cartItemname">
+                    <h3>{item.name}</h3>
+                    <h4>Condition: {item.condition}</h4>
+                    <h4>Details: {item.details}</h4>
+                  </div>
+                  <div className="priceAndAmountButtons">
+                    <div className="buttons">
+                      <button onClick={() => decrease(item.id)}>-</button>
+                      <h3>{item.amount}</h3>
+                      <button onClick={() => increase(item.id)}>+</button>
+                    </div>
+                    <div className="cartItemAmount">
+                      <h3>{item.amount * item.price} €</h3>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p>Your cart is empty.</p>
+            )}
           </div>
-        ))}
+          {items && items.length > 0 ? (
+            <div className="total">
+              <div>
+                <h1>Total: {total} €</h1>
 
-        <div className="cartTotal">
-          <h3>Total: {total} €</h3>
-        </div>
-        <div className="chekcoutButton">
-          <button>Checkout</button>
+                <button>Checkout</button>
+              </div>
+            </div>
+          ) : (
+            <p></p>
+          )}
         </div>
       </div>
     </div>

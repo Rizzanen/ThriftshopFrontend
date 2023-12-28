@@ -53,7 +53,7 @@ function Login() {
   return (
     <div className="loginpage">
       <div className="pleaselogin">
-        <h1>Login to see your profile</h1>
+        <h1>Login to your profile</h1>
       </div>
       <div className="loginform">
         <div className="loginheader">
