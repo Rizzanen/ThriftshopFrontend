@@ -196,7 +196,11 @@ function Profile() {
                   </div>
 
                   <div className="ownListingButtons">
-                    <Link to={"/editListing"} state={{ listing: listing }}>
+                    <Link
+                      to={"/editListing"}
+                      state={{ listing: listing }}
+                      className="editListingButton"
+                    >
                       Edit
                     </Link>
                     <button onClick={() => handleDeleteClick(listing.id)}>
