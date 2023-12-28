@@ -14,6 +14,7 @@ function Homepage() {
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
+
         setListingsCopy(data);
       })
       .then(() => setEmptySearch(false));
@@ -98,6 +99,10 @@ function Homepage() {
     sessionStorage.setItem("Cart", JSON.stringify(currentCart));
   };
 
+  const convertByteArrayToBase64 = (base64String) => {
+    return `data:image/jpeg;base64,${base64String}`;
+  };
+
   return (
     <div className="homepage">
       <div className="searchbar">
@@ -122,7 +127,7 @@ function Homepage() {
       {listings.map((listing) => (
         <div className="listing" key={listing.id}>
           <div className="image">
-            <img src={listing.pictureURL} alt="Product image" />
+            <img src={convertByteArrayToBase64(listing.pictureData)} />
           </div>
           <div className="info">
             <div className="nameprice">

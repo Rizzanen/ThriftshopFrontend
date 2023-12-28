@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     if (Number(sessionStorage.getItem("cartItemsCount"))) {
       setCartItemCount(Number(sessionStorage.getItem("cartItemsCount")));
-      console.log("perkele");
     }
   }, []);
   return (

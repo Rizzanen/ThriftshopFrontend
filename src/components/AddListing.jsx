@@ -11,7 +11,7 @@ function AddListing() {
     name: "",
     price: "",
     date: new Date(),
-    pictureURL: "",
+    pictureData: null,
     condition: "",
     details: "",
     category: {},
@@ -31,12 +31,19 @@ function AddListing() {
   };
 
   const createListing = () => {
+    const formData = new FormData();
+    formData.append("name", listing.name);
+    formData.append("price", listing.price);
+    formData.append("date", listing.date.toISOString());
+    formData.append("condition", listing.condition);
+    formData.append("details", listing.details);
+    formData.append("category", JSON.stringify(listing.category));
+    formData.append("appUser", JSON.stringify(listing.appUser));
+    formData.append("pictureData", listing.pictureData);
+
     fetch("http://localhost:8080/listings", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(listing),
+      body: formData,
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -45,20 +52,37 @@ function AddListing() {
       .catch((error) => {
         console.error("Error:", error);
       });
+
     setListing({
       name: "",
       price: "",
       date: new Date(),
-      pictureURL: "",
+      pictureData: null,
       condition: "",
       details: "",
       category: {},
+      appUser: newUserData,
     });
-    navigate("/profile");
+    setTimeout(() => {
+      navigate("/profile");
+    }, 100);
   };
 
   const handleOnChange = (event) => {
     setListing({ ...listing, [event.target.name]: event.target.value });
+  };
+
+  const handleFileChange = async (e) => {
+    const fileInput = e.target;
+    const file = fileInput.files && fileInput.files[0];
+
+    if (file) {
+      try {
+        setListing({ ...listing, pictureData: file });
+      } catch (error) {
+        console.error("Error setting pictureData:", error);
+      }
+    }
   };
 
   return (
@@ -89,12 +113,13 @@ function AddListing() {
             </div>
           </div>
           <h2>Picture URL</h2>
+
           <input
-            type="text"
-            onChange={handleOnChange}
-            name="pictureURL"
-            value={listing.pictureURL}
-          ></input>
+            className="fileInput"
+            type="file"
+            onChange={(e) => handleFileChange(e)}
+          />
+
           <h2>Condition</h2>
           <input
             type="text"

@@ -55,6 +55,9 @@ function Cart() {
     sessionStorage.setItem("Cart", JSON.stringify(updatedItems));
     countTotal(updatedItems);
   };
+  const convertByteArrayToBase64 = (base64String) => {
+    return `data:image/jpeg;base64,${base64String}`;
+  };
   return (
     <div className="CartPage">
       <div className="cartContainer">
@@ -66,7 +69,7 @@ function Cart() {
             {items && items.length > 0 ? (
               items.map((item) => (
                 <div key={item.id} className="cartItems">
-                  <img src={item.pictureURL} />
+                  <img src={convertByteArrayToBase64(item.pictureData)} />
                   <div className="cartItemname">
                     <h3>{item.name}</h3>
                     <h4>Condition: {item.condition}</h4>

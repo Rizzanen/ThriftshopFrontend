@@ -90,6 +90,9 @@ function Profile() {
         console.error("Error:", error);
       });
   };
+  const convertByteArrayToBase64 = (base64String) => {
+    return `data:image/jpeg;base64,${base64String}`;
+  };
 
   return (
     <div className="profilepage">
@@ -181,7 +184,7 @@ function Profile() {
             {usersListings.map((listing) => (
               <div className="ownListing" key={listing.id}>
                 <div className="ownListingImg">
-                  <img src={listing.pictureURL} />
+                  <img src={convertByteArrayToBase64(listing.pictureData)} />
                 </div>
                 <div className="ownListingInformation">
                   <div className="ownListingName">
