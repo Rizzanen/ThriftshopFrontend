@@ -572,7 +572,6 @@ html {
   margin-left: 10vw;
 }
 
-.editListingPicture,
 .editListingDetails,
 .editListingCondition,
 .editListingPrice,
@@ -583,8 +582,7 @@ html {
 }
 .editListingName input,
 .editListingPrice input,
-.editListingCondition input,
-.editListingPicture input {
+.editListingCondition input {
   width: 40vw;
   height: 5vh;
   font-size: 16px;
@@ -595,7 +593,7 @@ html {
   font-size: 16px;
   resize: none;
 }
-.editListingPicture h2,
+
 .editListingDetails h2,
 .editListingCondition h2,
 .editListingPrice h2,
@@ -606,6 +604,7 @@ html {
   height: 5vh;
   width: 5vw;
   font-size: 18px;
+  margin-top: 2vh;
   margin-left: auto;
   background-color: rgb(14, 102, 143);
   color: white;
@@ -737,9 +736,7 @@ html {
 .cartIconContainer {
   position: relative;
 }
-.dropZone {
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid black;
-  text-align: center;
+.fileInput {
+  background-color: rgb(239, 246, 250) !important;
+  border: none !important;
 }

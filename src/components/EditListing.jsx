@@ -28,13 +28,13 @@ function EditListing() {
       });
     setTimeout(() => {
       navigate("/profile");
-    }, 10);
+    }, 100);
   };
   return (
     <div className="editListingPage">
       <div className="editListingContainer">
         <div className="editListingHeader">
-          <h1>Edit Listing</h1>
+          <h1>Edit Listing Information</h1>
         </div>
         <div className="editListingForm">
           <div className="editListingName">
@@ -70,15 +70,6 @@ function EditListing() {
               type="text"
               name="details"
               value={editedListing.details}
-              onChange={handleOnChange}
-            />
-          </div>
-          <div className="editListingPicture">
-            <h2>Picture:</h2>
-            <input
-              type="text"
-              name="pictureURL"
-              value={editedListing.pictureURL}
               onChange={handleOnChange}
             />
           </div>

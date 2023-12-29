@@ -112,7 +112,7 @@ function AddListing() {
               ></input>
             </div>
           </div>
-          <h2>Picture URL</h2>
+          <h2>Picture</h2>
 
           <input
             className="fileInput"

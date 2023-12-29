@@ -8,17 +8,18 @@ function Homepage() {
   const [emptySearch, setEmptySearch] = useState(false);
   const [allCategorys, setAllCategorys] = useState([]);
   const { setCartItemCount, cartItemCount } = useCart();
+  const [refreshListings, setRefreshListings] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:8080/listings")
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
-
+        console.log("refreshed");
         setListingsCopy(data);
       })
       .then(() => setEmptySearch(false));
-  }, [emptySearch]);
+  }, [emptySearch, refreshListings]);
 
   useEffect(() => {
     fetch("http://localhost:8080/categorys")
@@ -70,6 +71,19 @@ function Homepage() {
   };
 
   const addToCart = (listing) => {
+    if (listing.itemAmount > 1) {
+      listing.itemAmount = listing.itemAmount - 1;
+    } else {
+      fetch(`http://localhost:8080/listings/${listing.id}`, {
+        method: "DELETE",
+      }).catch((error) => {
+        console.error("Error:", error);
+      });
+      console.log(refreshListings);
+      setTimeout(() => {
+        setRefreshListings(!refreshListings);
+      }, 100);
+    }
     if (cartItemCount === 0) {
       sessionStorage.setItem("cartItemsCount", 1);
       setCartItemCount(1);
@@ -145,6 +159,7 @@ function Homepage() {
 
             <div className="postedButton">
               <p>Posted: {formatDate(listing.date)}</p>
+              <p>Items left: {listing.itemAmount}</p>
               <button onClick={() => addToCart(listing)}>Add to Cart</button>
             </div>
           </div>
