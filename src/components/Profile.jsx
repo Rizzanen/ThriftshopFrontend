@@ -196,6 +196,7 @@ function Profile() {
                   </div>
                   <div className="ownListingDetails">
                     <p> Details: {listing.details}</p>
+                    <p>Amount: {listing.itemAmount}</p>
                   </div>
 
                   <div className="ownListingButtons">

@@ -14,6 +14,7 @@ function AddListing() {
     pictureData: null,
     condition: "",
     details: "",
+    itemAmount: 0,
     category: {},
     appUser: newUserData,
   });
@@ -37,6 +38,7 @@ function AddListing() {
     formData.append("date", listing.date.toISOString());
     formData.append("condition", listing.condition);
     formData.append("details", listing.details);
+    formData.append("itemAmount", listing.itemAmount);
     formData.append("category", JSON.stringify(listing.category));
     formData.append("appUser", JSON.stringify(listing.appUser));
     formData.append("pictureData", listing.pictureData);
@@ -127,6 +129,13 @@ function AddListing() {
             name="condition"
             value={listing.condition}
           ></input>
+          <h2>Amount of items</h2>
+          <input
+            type="number"
+            onChange={handleOnChange}
+            name="itemAmount"
+            value={listing.itemAmount || 0}
+          />
           <h2>Details</h2>
           <textarea
             type="text"

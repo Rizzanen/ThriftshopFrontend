@@ -15,7 +15,6 @@ function Homepage() {
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
-        console.log("refreshed");
         setListingsCopy(data);
       })
       .then(() => setEmptySearch(false));
@@ -73,13 +72,21 @@ function Homepage() {
   const addToCart = (listing) => {
     if (listing.itemAmount > 1) {
       listing.itemAmount = listing.itemAmount - 1;
+      fetch("http://localhost:8080/listings", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(listing),
+      }).catch((error) => {
+        console.error("Error:", error);
+      });
     } else {
       fetch(`http://localhost:8080/listings/${listing.id}`, {
         method: "DELETE",
       }).catch((error) => {
         console.error("Error:", error);
       });
-      console.log(refreshListings);
       setTimeout(() => {
         setRefreshListings(!refreshListings);
       }, 100);
