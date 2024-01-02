@@ -10,6 +10,7 @@ import Login from "./components/Login.jsx";
 import EditListing from "./components/EditListing.jsx";
 import Cart from "./components/Cart.jsx";
 import { CartProvider } from "./context/Cartcontext.jsx";
+import Checkout from "./components/chekcout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },

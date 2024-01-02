@@ -30,12 +30,16 @@ function Profile() {
     if (sessionStorage.getItem("Userdata") !== null) {
       const data = JSON.parse(sessionStorage.getItem("Userdata"));
       setNewUserData(data);
-      fetch(`http://localhost:8080/listings/users/${data.userId}`)
+      fetch(
+        `https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings/users/${data.userId}`
+      )
         .then((response) => response.json())
         .then((data) => setUsersListings(data));
     } else {
       setNewUserData(userData);
-      fetch(`http://localhost:8080/listings/users/${userData.userId}`)
+      fetch(
+        `https://thriftshoprest-6dad2e66a25b.herokuapp.com/users/${userData.userId}`
+      )
         .then((response) => response.json())
         .then((data) => setUsersListings(data));
     }
@@ -50,7 +54,7 @@ function Profile() {
   };
 
   const handleUpdateClick = () => {
-    fetch("http://localhost:8080/users", {
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/users", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -77,12 +81,14 @@ function Profile() {
 
   const handleDeleteClick = (id) => {
     window.alert("Are you sure you want to delete the listing?");
-    fetch(`http://localhost:8080/listings/${id}`, {
+    fetch(`https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.text())
       .then(() => {
-        fetch(`http://localhost:8080/listings/users/${newUserData.userId}`)
+        fetch(
+          `https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings/users/${newUserData.userId}`
+        )
           .then((response) => response.json())
           .then((data) => setUsersListings(data));
       })

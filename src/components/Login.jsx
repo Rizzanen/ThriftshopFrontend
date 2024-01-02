@@ -21,13 +21,16 @@ function Login() {
   };
 
   const handleLogin = () => {
-    fetch("http://localhost:8080/checkLoginRequest", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    })
+    fetch(
+      "https://thriftshoprest-6dad2e66a25b.herokuapp.com/checkLoginRequest",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           if (response.status === 401) {

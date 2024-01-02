@@ -11,7 +11,7 @@ function Homepage() {
   const [refreshListings, setRefreshListings] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/listings")
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings")
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
@@ -21,7 +21,7 @@ function Homepage() {
   }, [emptySearch, refreshListings]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/categorys")
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/categorys")
       .then((response) => response.json())
       .then((data) => {
         setAllCategorys(data);
@@ -70,37 +70,25 @@ function Homepage() {
   };
 
   const addToCart = (listing) => {
-    if (listing.itemAmount > 1) {
-      listing.itemAmount = listing.itemAmount - 1;
-      fetch("http://localhost:8080/listings", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(listing),
-      }).catch((error) => {
-        console.error("Error:", error);
-      });
-    } else {
-      fetch(`http://localhost:8080/listings/${listing.id}`, {
-        method: "DELETE",
-      }).catch((error) => {
-        console.error("Error:", error);
-      });
-      setTimeout(() => {
-        setRefreshListings(!refreshListings);
-      }, 100);
-    }
+    var doesExist = 0;
+    const currentCart = JSON.parse(sessionStorage.getItem("Cart")) || [];
+
     if (cartItemCount === 0) {
       sessionStorage.setItem("cartItemsCount", 1);
       setCartItemCount(1);
     } else {
-      const cartItemAmount = cartItemCount + 1;
-      sessionStorage.setItem("cartItemsCount", cartItemAmount);
-      setCartItemCount(cartItemAmount);
+      currentCart.forEach((item) => {
+        if (item.id === listing.id) {
+          doesExist = doesExist + 1;
+        }
+      });
+      if (doesExist === 0) {
+        const cartItemAmount = cartItemCount + 1;
+        sessionStorage.setItem("cartItemsCount", cartItemAmount);
+        setCartItemCount(cartItemAmount);
+      }
     }
 
-    const currentCart = JSON.parse(sessionStorage.getItem("Cart")) || [];
     listing.amount = 1;
     var itemUniqueCounter = 0;
     if (currentCart.length === 0) {
@@ -108,7 +96,6 @@ function Homepage() {
     } else {
       currentCart.forEach((item) => {
         if (item.id === listing.id) {
-          item.amount += 1;
           itemUniqueCounter += 1;
         }
       });
@@ -166,7 +153,6 @@ function Homepage() {
 
             <div className="postedButton">
               <p>Posted: {formatDate(listing.date)}</p>
-              <p>Items left: {listing.itemAmount}</p>
               <button onClick={() => addToCart(listing)}>Add to Cart</button>
             </div>
           </div>

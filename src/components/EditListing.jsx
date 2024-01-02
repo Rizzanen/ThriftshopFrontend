@@ -15,7 +15,7 @@ function EditListing() {
     });
   };
   const saveEdit = () => {
-    fetch("http://localhost:8080/listings", {
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function EditListing() {
       });
     setTimeout(() => {
       navigate("/profile");
-    }, 100);
+    }, 200);
   };
   return (
     <div className="editListingPage">

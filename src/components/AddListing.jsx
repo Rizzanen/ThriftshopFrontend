@@ -20,7 +20,7 @@ function AddListing() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8080/categorys")
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/categorys")
       .then((response) => response.json())
       .then((data) => {
         setAllCategorys(data);
@@ -43,7 +43,7 @@ function AddListing() {
     formData.append("appUser", JSON.stringify(listing.appUser));
     formData.append("pictureData", listing.pictureData);
 
-    fetch("http://localhost:8080/listings", {
+    fetch("https://thriftshoprest-6dad2e66a25b.herokuapp.com/listings", {
       method: "POST",
       body: formData,
     })
@@ -129,13 +129,7 @@ function AddListing() {
             name="condition"
             value={listing.condition}
           ></input>
-          <h2>Amount of items</h2>
-          <input
-            type="number"
-            onChange={handleOnChange}
-            name="itemAmount"
-            value={listing.itemAmount || 0}
-          />
+
           <h2>Details</h2>
           <textarea
             type="text"
