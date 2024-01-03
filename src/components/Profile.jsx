@@ -41,7 +41,10 @@ function Profile() {
         `https://thriftshoprest-6dad2e66a25b.herokuapp.com/users/${userData.userId}`
       )
         .then((response) => response.json())
-        .then((data) => setUsersListings(data));
+        .then((data) => {
+          setUsersListings(data);
+          console.log("perkele");
+        });
     }
   }, []);
 
@@ -202,7 +205,6 @@ function Profile() {
                   </div>
                   <div className="ownListingDetails">
                     <p> Details: {listing.details}</p>
-                    <p>Amount: {listing.itemAmount}</p>
                   </div>
 
                   <div className="ownListingButtons">

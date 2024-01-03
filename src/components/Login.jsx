@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function Login() {
       })
       .then((data) => {
         if (data) {
+          console.log(data);
           navigate("/profile", { state: { userData: data } });
           sessionStorage.setItem("isLoggedIn", "true");
         }
@@ -76,7 +78,7 @@ function Login() {
         <div className="password">
           <h3>Password</h3>
           <input
-            type="text"
+            type="password"
             name="password"
             value={loginData.password}
             onChange={handleInputChange}
@@ -86,7 +88,14 @@ function Login() {
         <div className="loginButton">
           <button onClick={handleLogin}>Login</button>
         </div>
+        <Link to={"/signup"} className="signupLink">
+          Signup
+        </Link>
       </div>
+      <h4>Default user</h4>
+      <p>Username: user</p>
+      <p>Password: user</p>
+      <p>If it doesn't work press Reset DB and try again</p>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import EditListing from "./components/EditListing.jsx";
 import Cart from "./components/Cart.jsx";
 import { CartProvider } from "./context/Cartcontext.jsx";
 import Checkout from "./components/chekcout.jsx";
+import Signup from "./components/Signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
       },
     ],
   },

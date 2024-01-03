@@ -765,3 +765,54 @@ html {
   border: 2px solid white;
   cursor: pointer;
 }
+.loginpage h4 {
+  margin-bottom: 0;
+}
+.loginpage p {
+  margin-bottom: 0;
+}
+.signupLink {
+  margin-top: 1vh;
+  font-size: 17px;
+}
+
+.signupContainer {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(239, 246, 250);
+  width: 40%;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+.signupInput {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+.signupInput h2 {
+  font-size: 17px;
+  width: 35%;
+}
+.signupInput input {
+}
+.signupButton button {
+  height: 5vh;
+  width: 5vw;
+  margin-bottom: 5vh;
+  background-color: rgb(14, 102, 143);
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.signupButton button:hover {
+  background-color: rgb(8, 53, 73);
+}
+.signupButton {
+  margin-left: auto;
+  margin-right: 4vw;
+  margin-top: 2vh;
+}
